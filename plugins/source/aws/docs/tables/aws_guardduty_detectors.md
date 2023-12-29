@@ -4,7 +4,7 @@ This table shows data for Amazon GuardDuty Detectors.
 
 https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetDetector.html
 
-The composite primary key for this table is (**request_account_id**, **request_region**, **id**).
+The primary key for this table is **id**.
 
 ## Relations
 
@@ -22,8 +22,8 @@ The following tables depend on aws_guardduty_detectors:
 | ------------- | ------------- |
 |_cq_id|`uuid`|
 |_cq_parent_id|`uuid`|
-|request_account_id (PK)|`utf8`|
-|request_region (PK)|`utf8`|
+|account_id|`utf8`|
+|region|`utf8`|
 |arn|`utf8`|
 |id (PK)|`utf8`|
 |service_role|`utf8`|

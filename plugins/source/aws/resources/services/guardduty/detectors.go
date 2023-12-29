@@ -26,18 +26,8 @@ func Detectors() *schema.Table {
 		),
 		Multiplex: client.ServiceAccountRegionMultiplexer(tableName, "guardduty"),
 		Columns: schema.ColumnList{
-			{
-				Name:       "request_account_id",
-				Type:       arrow.BinaryTypes.String,
-				Resolver:   client.ResolveAWSAccount,
-				PrimaryKey: true,
-			},
-			{
-				Name:       "request_region",
-				Type:       arrow.BinaryTypes.String,
-				Resolver:   client.ResolveAWSRegion,
-				PrimaryKey: true,
-			},
+			client.DefaultAccountIDColumn(false),
+			client.DefaultRegionColumn(false),
 			{
 				Name:     "arn",
 				Type:     arrow.BinaryTypes.String,
@@ -98,4 +88,11 @@ func resolveGuarddutyARN() schema.ColumnResolver {
 	return client.ResolveARN(client.GuardDutyService, func(resource *schema.Resource) ([]string, error) {
 		return []string{"detector", resource.Item.(*models.DetectorWrapper).Id}, nil
 	})
+}
+
+var detectorARNColumn = schema.Column{
+	Name:       "detector_arn",
+	Type:       arrow.BinaryTypes.String,
+	Resolver:   schema.ParentColumnResolver("arn"),
+	PrimaryKey: true,
 }
