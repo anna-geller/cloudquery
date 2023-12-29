@@ -22,14 +22,15 @@ func detectorFindings() *schema.Table {
 			transformers.WithTypeTransformer(client.TimestampTypeTransformer),
 			transformers.WithResolverTransformer(client.TimestampResolverTransformer),
 		),
-		Columns: schema.ColumnList{ // account_id & region are already a part of the resource
+		Columns: schema.ColumnList{
+			// account_id & region are already a part of the resource
 			detectorARNColumn,
 		},
 	}
 }
 
 func fetchDetectorFindings(ctx context.Context, meta schema.ClientMeta, parent *schema.Resource, res chan<- any) error {
-	detector := parent.Item.(*models.DetectorWrapper)
+	detector := parent.Item.(models.DetectorWrapper)
 
 	cl := meta.(*client.Client)
 	svc := cl.Services(client.AWSServiceGuardduty).Guardduty

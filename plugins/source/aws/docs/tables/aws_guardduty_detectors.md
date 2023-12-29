@@ -4,7 +4,7 @@ This table shows data for Amazon GuardDuty Detectors.
 
 https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetDetector.html
 
-The primary key for this table is **id**.
+The primary key for this table is **arn**.
 
 ## Relations
 
@@ -24,8 +24,7 @@ The following tables depend on aws_guardduty_detectors:
 |_cq_parent_id|`uuid`|
 |account_id|`utf8`|
 |region|`utf8`|
-|arn|`utf8`|
-|id (PK)|`utf8`|
+|arn (PK)|`utf8`|
 |service_role|`utf8`|
 |status|`utf8`|
 |created_at|`timestamp[us, tz=UTC]`|
@@ -34,3 +33,4 @@ The following tables depend on aws_guardduty_detectors:
 |finding_publishing_frequency|`utf8`|
 |tags|`json`|
 |updated_at|`timestamp[us, tz=UTC]`|
+|id|`utf8`|
