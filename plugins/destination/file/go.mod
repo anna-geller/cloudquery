@@ -1,6 +1,6 @@
 module github.com/cloudquery/cloudquery/plugins/destination/file
 
-go 1.21.4
+go 1.21.5
 
 require (
 	github.com/apache/arrow/go/v15 v15.0.0-20240115115805-d7bc55542e61

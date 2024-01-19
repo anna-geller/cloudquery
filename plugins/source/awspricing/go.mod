@@ -1,6 +1,6 @@
 module github.com/cloudquery/cloudquery/plugins/source/awspricing
 
-go 1.21.4
+go 1.21.5
 
 require (
 	github.com/cloudquery/plugin-sdk/v4 v4.25.2

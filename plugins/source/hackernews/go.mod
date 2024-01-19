@@ -1,6 +1,6 @@
 module github.com/cloudquery/cloudquery/plugins/source/hackernews
 
-go 1.21.4
+go 1.21.5
 
 require (
 	github.com/apache/arrow/go/v15 v15.0.0-20240114144300-7e703aae55c1
